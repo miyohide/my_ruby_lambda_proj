@@ -3,10 +3,11 @@
 require "json"
 require "date"
 
+# event には {"command": コマンド名, "option": オプション値}という
+# Hashで出力される
 def handler(event:, context:)
-  events = JSON.parse(event.body)
   status_code = 200
-  case events
+  case event["command"]
   when "date"
     result = { date: JSON.generate(Date.today) }
   when "time"
