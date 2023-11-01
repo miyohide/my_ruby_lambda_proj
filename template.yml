@@ -1,0 +1,14 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: A sample SAM template for deploying Lambda functions.
+
+Resources:
+  # Details about the mainFunction Lambda function
+  mainFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: handler.handler
+      Runtime: ruby3.2
+      AutoPublishAlias: live
+      DeploymentPreference:
+        Type: AllAtOnce
