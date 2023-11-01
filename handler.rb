@@ -19,6 +19,7 @@ def handler(event:, context:)
 
   {
     statusCode: status_code,
-    body: result
+    body: result,
+    message: "message v1"
   }
 end
