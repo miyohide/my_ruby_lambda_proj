@@ -11,4 +11,5 @@ Resources:
       Runtime: ruby3.2
       AutoPublishAlias: live
       DeploymentPreference:
-        Type: AllAtOnce
+#        Type: AllAtOnce  # 一度に全部更新する
+        Type: Linear10PercentEvery1Minute  # １分間に10%ずつ更新
