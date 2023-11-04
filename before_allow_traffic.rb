@@ -18,7 +18,7 @@ class BeforeAllTraffic
       })
   end
 
-  def notify_execution_status(event:, status:)
+  def self.notify_execution_status(event:, status:)
     deployment_id = event['DeploymentId']
     execution_id = event['LifecycleEventHookExecutionId']
 
@@ -30,13 +30,13 @@ class BeforeAllTraffic
       })
   end
 
-  def handler(event: , context:)
+  def self.handler(event: , context:)
     @logger.info(event)
     status = "Succeeded"
 
     begin
       # aws_lambda_log = invoke_lambda
-      @logger.info("status_code = [#{aws_lambda_log.status_code}], payload=[#{aws_lambda_log.payload}]")
+      # @logger.info("status_code = [#{aws_lambda_log.status_code}], payload=[#{aws_lambda_log.payload}]")
       notify_response = notify_execution_status(event: event, status: status)
     rescue => e
       @logger.fatal(e)
