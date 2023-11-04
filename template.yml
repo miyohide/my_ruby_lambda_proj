@@ -20,7 +20,7 @@ Resources:
   BeforeTrafficFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: before_allow_traffic.BeforeAllTraffic.handler
+      Handler: before_allow_traffic.AfterAllowTraffic.handler
       Runtime: ruby3.2
       Policies:
         - Version: 2012-10-17
@@ -32,7 +32,7 @@ Resources:
   AfterTrafficFunction:
     Type: AWS::Serverless::Function
     Properties:
-      Handler: after_allow_traffic.BeforeAllTraffic.handler
+      Handler: after_allow_traffic.BeforeAllowTraffic.handler
       Runtime: ruby3.2
       Policies:
         - Version: 2012-10-17

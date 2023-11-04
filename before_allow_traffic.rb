@@ -4,7 +4,7 @@ require 'aws-sdk-codedeploy'
 require 'aws-sdk-lambda'
 require 'logger'
 
-class BeforeAllTraffic
+class BeforeAllowTraffic
   @logger = Logger.new(STDOUT)
   @codedeploy_client = Aws::CodeDeploy::Client.new
   @lambda_client = Aws::Lambda::Client.new
