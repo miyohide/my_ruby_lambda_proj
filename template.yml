@@ -15,11 +15,24 @@ Resources:
         Type: Linear10PercentEvery1Minute  # １分間に10%ずつ更新
         Hooks:
           PreTraffic: !Ref BeforeTrafficFunction
+          PostTraffic: !Ref AfterTrafficFunction
 
   BeforeTrafficFunction:
     Type: AWS::Serverless::Function
     Properties:
       Handler: before_allow_traffic.BeforeAllTraffic.handler
+      Runtime: ruby3.2
+      Policies:
+        - Version: 2012-10-17
+          Statement:
+            - Effect: Allow
+              Action:
+                - codedeploy:PutLifecycleEventHookExecutionStatus
+              Resource: "*"
+  AfterTrafficFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: after_allow_traffic.BeforeAllTraffic.handler
       Runtime: ruby3.2
       Policies:
         - Version: 2012-10-17
